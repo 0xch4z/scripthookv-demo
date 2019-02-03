@@ -1,0 +1,11 @@
+language: csharp
+solution: NPCAttack.sln
+mono: latest
+dotnet: 2.0.0
+
+os:
+- windows
+
+script:
+# smoke test
+- echo 'todo'
