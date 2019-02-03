@@ -2,25 +2,16 @@ version: 0.1.{build}
 image: Visual Studio 2017
 configuration: Release
 
-dotnet_csproj:
-  patch: true
-  file: '**/*.csproj'
-  version: '{version}'
-  package_version: '{version}'
-  assembly_version: '{version}'
-  file_version: '{version}'
-  informational_version: '{version}'
-
-build:
-  verbosity: minimal
+build_script:
+  - cmd: dotnet build -c Release
 
 deploy:
 - provider: GitHub
   release: NPC-Attack-v$(appveyor_build_version)
   description: main dll
   auth_token:
-    secure: BZhxXnJJTrPVahMCJMt/lttcFJ/aLonezD6Ge7A4vAdhbHjB8VUMwldMIhFlVDrS
-  artifact: NPCAttack\bin\Release\NPCAttack.dll
+    secure: 'BZhxXnJJTrPVahMCJMt/lttcFJ/aLonezD6Ge7A4vAdhbHjB8VUMwldMIhFlVDrS'
+  artifact: /.*\NPCAttack.dll/
   draft: false
   prerelease: false
   on:
