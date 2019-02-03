@@ -5,13 +5,17 @@ configuration: Release
 build_script:
   - cmd: dotnet build -c Release
 
+artifacts:
+  - path: NPCAttack\bin\Release\NPCAttack.dll
+    name: extension
+
 deploy:
 - provider: GitHub
   release: NPC-Attack-v$(appveyor_build_version)
   description: main dll
+  artifacts: extension
   auth_token:
     secure: 'BZhxXnJJTrPVahMCJMt/lttcFJ/aLonezD6Ge7A4vAdhbHjB8VUMwldMIhFlVDrS'
-  artifact: /.*NPCAttack.dll/
   draft: false
   prerelease: false
   on:
