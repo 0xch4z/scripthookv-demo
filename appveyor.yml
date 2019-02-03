@@ -14,12 +14,12 @@ artifacts:
 
 deploy:
 - provider: GitHub
-  release: NPC-Attack-v$(APPVEYOR_REPO_TAG_NAME)
-  description: main dll
+  tag: $(appveyor_repo_tag_name)
+  release: NPCAttack v$(appveyor_repo_tag_name)
   artifacts: extension
   auth_token:
     secure: 'BZhxXnJJTrPVahMCJMt/lttcFJ/aLonezD6Ge7A4vAdhbHjB8VUMwldMIhFlVDrS'
   draft: false
   prerelease: false
   on:
-    APPVEYOR_REPO_TAG: true
+    appveyor_repo_tag: true
